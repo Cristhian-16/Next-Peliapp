@@ -18,7 +18,11 @@ export default function RootLayout({
     <html lang='en'>
       <body className={`${inter.className} bg-[#131b2e] box-border text-white`}>
         <Header />
-        <main>{children}</main>
+        <main className=' max-w-6xl mx-auto'>{children}</main>
+
+        <footer className='bg-black text-center py-9'>
+          <p>Todos los derechos Reservados ©</p>
+        </footer>
       </body>
     </html>
   );
