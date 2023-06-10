@@ -1,26 +1,19 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import React, { FC } from 'react';
 
-interface PropsLastNew {
+interface PropsSearchMovie {
   movie: {
-    image: string;
-    title: string;
-    puntuacion: number;
     id: number;
-    poster: string;
-    descripcion: string;
-    popularidad: number;
-    estreno: Date;
-    countVotes: number;
-    adult: boolean;
+    title: string;
+    image: string;
   };
 }
 
-export const LastNew: FC<PropsLastNew> = ({ movie }) => {
+export const SearchMovie = ({ movie }: PropsSearchMovie) => {
   return (
     <Link
       href={`/${movie.id}`}
+      key={movie.id}
       className='cell:p-4 flex flex-col items-center justify-center'
     >
       <Image

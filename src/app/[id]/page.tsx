@@ -14,13 +14,13 @@ export default async function MovieByID({ params: { id } }: PropsMovieByID) {
   const rating = response.rating.toFixed(1);
 
   return (
-    <div className=' h-[700px] flex flex-col md:flex-row items-center gap-3'>
+    <div className=' h-[800px] flex flex-col md:flex-row items-center gap-3'>
       <Image
         src={response.poster}
         alt={response.title}
         width={200}
         height={200}
-        className='media:w-[300px] md:w-[400px]'
+        className='media:w-[300px] sm:w-[200px] md:w-[400px]'
       />
 
       <section>
@@ -56,17 +56,24 @@ export default async function MovieByID({ params: { id } }: PropsMovieByID) {
           <p className='text-center my-3'>Apto para todos</p>
         )}
         <div className='w-[300px]'>
-          <p className='mt-2'>{response.descripcion}</p>
+          <p className='mb-2'>{response.descripcion}</p>
         </div>
 
-        <Link
-          href={response.page_visited}
-          className='block text-center border-2 border-white rounded-md py-2 px-4 mt-4 text-white hover:bg-white hover:text-red-900'
-          target='_blank'
-        >
-          {' '}
-          Pagina Oficial
-        </Link>
+        <div className='flex flex-row gap-2'>
+          <Link
+            href={response.page_visited}
+            className='block text-center border-2 border-white rounded-md py-2 px-4 md:mt-4 text-white hover:bg-white hover:text-red-900'
+            target='_blank'
+          >
+            Pagina Oficial
+          </Link>
+          <Link
+            href={'/'}
+            className='block text-center border-2 border-white rounded-md py-2 px-4 md:mt-4 text-white hover:bg-white hover:text-red-900'
+          >
+            Volver al inicio
+          </Link>
+        </div>
       </section>
     </div>
   );

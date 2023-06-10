@@ -1,9 +1,21 @@
 'use client';
 import { useForm } from '@/hooks/useForm';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 
 export const Formulario = () => {
-  const { form, handleChange, handleSubmit } = useForm();
+  const router = useRouter();
+  const { form, handleChange, setForm } = useForm();
+
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setForm({
+      search: ''
+    });
+
+    router.push(`/search/${form.search}`);
+  };
+
   return (
     <form className='flex items-center gap-2' onSubmit={handleSubmit}>
       <input
