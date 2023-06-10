@@ -1,5 +1,6 @@
 'use client';
 import Image from 'next/image';
+import Link from 'next/link';
 
 import { Formulario } from './Formulario';
 
@@ -7,7 +8,7 @@ export const Header = () => {
   return (
     <header className={`  text-white py-2`}>
       <nav className='flex justify-between items-center mx-3'>
-        <section className='flex items-center gap-2'>
+        <Link href={'/'} className='flex items-center gap-2'>
           <Image
             src={'/camara.png'}
             alt='Camara'
@@ -17,7 +18,7 @@ export const Header = () => {
             priority
           />
           <h1>PelisGratis</h1>
-        </section>
+        </Link>
         <div>
           <Formulario />
         </div>

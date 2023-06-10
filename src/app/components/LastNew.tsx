@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import React, { FC } from 'react';
 
 interface PropsLastNew {
@@ -18,7 +19,10 @@ interface PropsLastNew {
 
 export const LastNew: FC<PropsLastNew> = ({ movie }) => {
   return (
-    <div className=' cell:p-4 flex flex-col items-center justify-center'>
+    <Link
+      href={`/${movie.id}`}
+      className=' cell:p-4 flex flex-col items-center justify-center'
+    >
       <Image
         src={movie.image}
         alt={movie.title}
@@ -27,6 +31,6 @@ export const LastNew: FC<PropsLastNew> = ({ movie }) => {
         className='h-auto w-auto block hover:scale-95 transition duration-500 ease-in-out rounded-lg cursor-pointer'
       />
       <h3 className='mt-4'>{movie.title}</h3>
-    </div>
+    </Link>
   );
 };

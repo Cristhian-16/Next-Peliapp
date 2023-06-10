@@ -16,7 +16,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang='en'>
-      <body className={`${inter.className} bg-[#131b2e] box-border text-white`}>
+      <body
+        className={`${inter.className} flex flex-col h-screen justify-between bg-[#131b2e] box-border text-white`}
+      >
         <Header />
         <main className=' max-w-6xl mx-auto'>{children}</main>
 
